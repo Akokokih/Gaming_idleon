@@ -2,14 +2,30 @@
 
 Local Windows application for Idleon’s **Gaming** garden.
 
-## Start and stop
+## Start and stop (Windows)
 
-1. Open Idleon and display the full Gaming garden.
-2. Double-click **run.cmd**. The interface opens at `http://127.0.0.1:8765`.
+1. Open Idleon and display the full **Gaming** garden.
+2. In the project folder, double-click **run.cmd**. The interface opens in your browser at `http://127.0.0.1:8765`.
 3. Click **Start**. If Windows does not bring the game forward automatically, select it during the three-second countdown.
-4. Press **F8** or use **Stop** to stop the bot. Hiding the game or switching to another window also stops it.
+4. Press **F8** or click **Stop** to stop the bot. To close the server as well, click **Quit application** or press **Ctrl+C** in the terminal.
 
-**Quit application** closes the local server. Closing only the browser tab does not stop the server or bot. The bot never starts automatically when the application opens.
+You can also launch the application from PowerShell, opened in the project folder:
+
+```powershell
+.\run.cmd
+```
+
+Or launch the server directly using the virtual environment's Python:
+
+```powershell
+.\.venv\Scripts\python.exe .\main.py
+```
+
+If the browser does not open, go to `http://127.0.0.1:8765`. Keep the terminal open while using the application. Closing only the browser tab does not stop the server or bot.
+
+Hiding the game or switching to another window also stops the bot. The bot never starts automatically when the application opens.
+
+On a new installation, first install Python 3 and the dependencies by following **Install on another Windows setup** below.
 
 ## Current game rules
 
