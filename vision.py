@@ -73,12 +73,20 @@ class Vision:
                      [(0,210,8),(1,100,6),(2,30,8),(3,175,7),
                       (4,39,7),(5,246,7),(6,282,7),(7,238,7)]}
         self.last_scale = None
+        self.lab_plants_example = read_image(ASSETS / 'plante labo.png')
         self.lab_templates = []
         # Three isolated Chemical plants from the supplied full garden. Hue is
         # used only to isolate training silhouettes; matching ignores colour.
-        for x1, y1, x2, y2 in [(178, 56, 263, 133), (312, 264, 389, 345),
-                                  (124, 276, 210, 353)]:
-            crop = self.example[y1:y2, x1:x2]
+        for x1, y1, x2, y2 in [
+                (3, 26, 50, 60),
+                (50, 24, 101, 36),
+                (102, 8, 152, 69),
+                (146, 10, 196, 63),
+                (190, 12, 240, 68),
+                (239, 7, 295, 68),
+                (291, 8, 344, 75)
+        ]:
+            crop = self.lab_plants_example[y1:y2, x1:x2]
             hsv = cv2.cvtColor(crop, cv2.COLOR_RGB2HSV)
             active = foreground(crop).astype(bool)
             hue = np.bincount(hsv[:, :, 0][active], minlength=180).argmax()
